@@ -78,10 +78,10 @@ module "distribution2" {
     response_headers_policy_id = ""
     viewer_protocol_policy     = "https-only"
 
-    # cache_policy_id           = "658327ea-f89d-4fab-a63d-7e88639e58f6"
-    # origin_request_policy_id  = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
-		cache_policy_id 					= ""
-		origin_request_policy_id 	= ""
+    cache_policy_id           = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    origin_request_policy_id  = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
+		# cache_policy_id 					= ""   # will work legacy config
+		# origin_request_policy_id 	= ""
 
     forward_query_string  = false
     forward_header_values = ["Origin"]
