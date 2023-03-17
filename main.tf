@@ -93,8 +93,8 @@ module "distribution2" {
 
     smooth_streaming = false
   },
-  {
-    path_pattern      = "/ws"
+	{
+		path_pattern      = "/ws"
     target_origin_id  = "backoffice-alb"
     allowed_methods   = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods    = ["GET", "HEAD", "OPTIONS"]
@@ -109,7 +109,60 @@ module "distribution2" {
     default_ttl = 0
     min_ttl = 0
     max_ttl = 0
-
+    smooth_streaming = true
+	},
+  {
+    path_pattern      = "/rsocket"
+    target_origin_id  = "backoffice-alb"
+    allowed_methods   = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods    = ["GET", "HEAD", "OPTIONS"]
+    compress          = false
+    response_headers_policy_id = ""
+    viewer_protocol_policy     = "https-only"
+    cache_policy_id           = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+    origin_request_policy_id  = "216adef6-5c7f-47e4-b989-5492eafa07d3"
+    forward_query_string  = false
+    forward_header_values = ["Origin"]
+    forward_cookies       = "none"
+    default_ttl = 0
+    min_ttl = 0
+    max_ttl = 0
+    smooth_streaming = true
+  },
+	{
+    path_pattern      = "/rsocket2"
+    target_origin_id  = "backoffice-alb"
+    allowed_methods   = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods    = ["GET", "HEAD", "OPTIONS"]
+    compress          = false
+    response_headers_policy_id = ""
+    viewer_protocol_policy     = "https-only"
+    cache_policy_id           = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+    origin_request_policy_id  = "216adef6-5c7f-47e4-b989-5492eafa07d3"
+    forward_query_string  = false
+    forward_header_values = ["Origin"]
+    forward_cookies       = "none"
+    default_ttl = 0
+    min_ttl = 0
+    max_ttl = 0
+    smooth_streaming = true
+  },
+	{
+    path_pattern      = "/api*"
+    target_origin_id  = "backoffice-alb"
+    allowed_methods   = ["GET", "HEAD"]
+    cached_methods    = ["GET", "HEAD"]
+    compress          = true
+    response_headers_policy_id = ""
+    viewer_protocol_policy     = "https-only"
+    cache_policy_id           = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+    origin_request_policy_id  = "216adef6-5c7f-47e4-b989-5492eafa07d3"
+    forward_query_string  = false
+    forward_header_values = ["Origin"]
+    forward_cookies       = "none"
+    default_ttl = 0
+    min_ttl = 0
+    max_ttl = 0
     smooth_streaming = true
   }]
 
