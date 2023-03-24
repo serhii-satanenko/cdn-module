@@ -1,8 +1,10 @@
 module "distribution1" {
 	source   = "./module/"
-	module_enabled = false
+	module_enabled = true
 	region   = var.region
 	web_acl_id = var.web_acl_id
+  comment = "Distribution1_Name. Managed by Terraform"
+  origin_access_identity_comment = "Distribution1_acces"
 	
 	# Required. Must by one or more object
 	custom_origins = [{
@@ -24,6 +26,8 @@ module "distribution2" {
 	module_enabled = true
 	region   = var.region
 	create_s3_private_buckets = ["crmdata-dev01-cdn-backoffice"]
+  comment = "Distribution2_Name. Managed by Terraform"
+  origin_access_identity_comment = "Distribution2_acces"
 	# web_acl_id = var.web_acl_id  
 	
 	# Required. Must by one or more object

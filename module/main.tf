@@ -8,7 +8,7 @@
 resource "aws_cloudfront_origin_access_identity" "s3_origin_access_identity" {
   # count = var.module_enabled == true ? 1 : 0
   # comment = module.origin_label.id
-  comment = "Access identity for S3 bucket"
+  comment = var.origin_access_identity_comment
 }
 
 resource "aws_cloudfront_distribution" "this"{

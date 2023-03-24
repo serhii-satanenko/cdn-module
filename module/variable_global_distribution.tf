@@ -4,6 +4,11 @@ variable "module_enabled" {
   default = true
 }
 
+variable "origin_access_identity_comment" {
+  type = string
+  default = "Access identity for S3 bucket"
+}
+
 variable "distribution_enabled" {
   type        = bool
   default     = true
